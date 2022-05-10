@@ -6,4 +6,17 @@ body{
     
 }
 
+p{
+    
+    width: 50%;
+    height: 5%;
+    font-weight:600px;
+    font-size: 2rem;
+    margin-left: 40px;
+}
+
+img{
+    width: 30%;
+}
+
 
