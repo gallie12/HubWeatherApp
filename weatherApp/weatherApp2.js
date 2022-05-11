@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() 
 {   
     
@@ -6,37 +5,51 @@ document.addEventListener("DOMContentLoaded", function()
     const newDate = new Date();
     const day = newDate.getDay()
     
+    
+
+    
    
     valid.addEventListener("click",function(){
-        let today = document.getElementsByTagName("p")[0]
-        if (day=="1")
+        let week=['sunday', 'monday', 'tuesday' , 'wednesday', 'thursday',
+        'friday', 'saturday']
+        
+        for(i = 0;i < week.length-2;i++ )
         {
-            today.innerHTML="monday"
+            console.log(i)
+            if(day==i)
+            {
+                document.getElementsByTagName("p")[0].innerHTML=week[i]
+                document.getElementsByTagName("p")[i].innerHTML=week[i+day]
+                
+            }
+            
+            else
+            {
+                document.getElementsByTagName("p")[i].innerHTML=week[i+day]
+            }
+
+            if ((day==3 && i==4)||(day==4 && i==3)||(day==5 && i==2)||(day==6 && i==1))
+            {
+                document.getElementsByTagName("p")[i].innerHTML=week[i-i]
+            }
+            
+            if ((day==4 && i==4)||(day==5 && i==3)||(day==6 && i==2))
+            {
+                document.getElementsByTagName("p")[i].innerHTML=week[i-(i-1)]
+            }
+            
+            if((day==5 && i== 4)||(day==6 && i==3))
+            {
+                document.getElementsByTagName("p")[i].innerHTML=week[i-(i-2)]
+            }
+            if (day==6 && i==4)
+            {
+                document.getElementsByTagName("p")[i].innerHTML=week[i-(i-3)]
+            }
+
+            
         }
-        else if(day=="2")
-        {
-            today.innerHTML="tuesday"
-        }
-        else if(day=="3")
-        {
-            today.innerHTML="wednesday"
-        }
-        else if(day=="4")
-        {
-            today.innerHTML="thursday"
-        }
-        else if (day=="5")
-        {
-            today.innerHTML="friday"
-        }
-        else if(day=="6")
-        {
-            today.innerHTML="saturday"
-        }
-        else if (day=="7")
-        {
-            today.innerHTML="sunday"
-        }
+        
         const myCity=document.getElementById("town").value
         console.log(myCity);
         const API_KEY = "0a0f8a9f474b4e88ac225651e1f6375f"
@@ -58,38 +71,40 @@ document.addEventListener("DOMContentLoaded", function()
         return fetch(URL2)
                    .then(response => response.json())
                    .then(data=>{
-                       console.log(data)
-                       console.log(iconDisplay= data.current.weather[0].id)
-
+                       
+                    i=0;
+                    while(i < 5)
+                    {
+                        console.log(iconDisplay= data.daily[i].weather[0].id)
                        if(iconDisplay==800)
                        {
-                            document.getElementById("weatherIcon").src="weathers/sun.svg"  
+                            document.getElementsByTagName("img")[i].src="weathers/sun.svg"  
                        }
                        if(iconDisplay==801 || iconDisplay==802)
                        {
-                            document.getElementById("weatherIcon").src="weathers/cloudy.svg"  
+                            document.getElementsByTagName("img")[i].src="weathers/cloudy.svg"  
                        }
                        if(iconDisplay==803 || iconDisplay==804)
                        {
-                            document.getElementById("weatherIcon").src="weathers/clouds.svg"  
+                            document.getElementsByTagName("img")[i].src="weathers/clouds.svg"  
                        }
                        if(iconDisplay >=600 && iconDisplay <=622) 
                        {
-                            document.getElementById("weatherIcon").src="weathers/snow.svg"  
+                            document.getElementsByTagName("img")[i].src="weathers/snow.svg"  
                        }
                        if(iconDisplay >=600 && iconDisplay <=622) 
                        {
-                            document.getElementById("weatherIcon").src="weathers/snow.svg"  
+                            document.getElementsByTagName("img")[i].src="weathers/snow.svg"  
                        }
                        if((iconDisplay >=500 && iconDisplay <=531)||
                        (iconDisplay >=701 && iconDisplay <=781)||(iconDisplay>=200 && iconDisplay<=232)||
                        (iconDisplay>=300 && iconDisplay<=321)
                        ) 
                        {
-                            document.getElementById("weatherIcon").src="weathers/rain.svg"  
+                            document.getElementsByTagName("img")[i].src="weathers/rain.svg"  
                        }
-                       
-                       
+                       i++
+                    }  
                            
                        
                        
@@ -105,4 +120,5 @@ document.addEventListener("DOMContentLoaded", function()
     })   
     
 })
+
 
