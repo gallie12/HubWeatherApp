@@ -18,30 +18,30 @@ document.addEventListener("DOMContentLoaded", function()
     {
         if(iconDisplay==800)
         {
-                document.getElementsByTagName("img")[i].src="weathers/sun.svg"  
+                document.getElementsByTagName("img")[i].src="./weathers/sun.svg"  
         }
         if(iconDisplay==801 || iconDisplay==802)
         {
-                document.getElementsByTagName("img")[i].src="weathers/cloudy.svg"  
+                document.getElementsByTagName("img")[i].src="./weathers/cloudy.svg"  
         }
         if(iconDisplay==803 || iconDisplay==804)
         {
-                document.getElementsByTagName("img")[i].src="weathers/clouds.svg"  
+                document.getElementsByTagName("img")[i].src="./weathers/clouds.svg"  
         }
         if(iconDisplay >=600 && iconDisplay <=622) 
         {
-                document.getElementsByTagName("img")[i].src="weathers/snow.svg"  
+                document.getElementsByTagName("img")[i].src="./weathers/snow.svg"  
         }
         if(iconDisplay >=600 && iconDisplay <=622) 
         {
-                document.getElementsByTagName("img")[i].src="weathers/snow.svg"  
+                document.getElementsByTagName("img")[i].src="./weathers/snow.svg"  
         }
         if((iconDisplay >=500 && iconDisplay <=531)||
         (iconDisplay >=701 && iconDisplay <=781)||(iconDisplay>=200 && iconDisplay<=232)||
         (iconDisplay>=300 && iconDisplay<=321)
         ) 
         {
-                document.getElementsByTagName("img")[i].src="weathers/rain.svg"  
+                document.getElementsByTagName("img")[i].src="./weathers/rain.svg"  
         }
         if(day==i)
         {
