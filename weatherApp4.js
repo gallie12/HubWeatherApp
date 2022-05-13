@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function()
         {
             document.getElementsByTagName("p")[i].innerHTML=""
             document.getElementsByTagName("img")[i].src=""
+            document.getElementsByTagName("img")[i].alt=""
         }
     })
     function iconDayDisplayer(iconDisplay) 
